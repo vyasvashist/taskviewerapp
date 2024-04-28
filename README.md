@@ -2,7 +2,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First run postgres using docker
+
+```bash
+docker run --name my-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+docker start my-postgres 
+docker exec -it my-postgres psql -U postgres -d postgres 
+```
+copy connection string to .env file 
+```bash
+postgresql://postgres:mysecretpassword@localhost:5432/postgres?schema=public 
+```
+
+Second, run the development server:
 
 ```bash
 npm run dev
