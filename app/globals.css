@@ -2,32 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.DM_SANS{
+  font-family: var(--font-dm_sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.scrollbar::-webkit-scrollbar-track {
+  background-color: rgba(226, 221, 221, 0.1);
+}
+
+.border-l-visible {
+  position: relative;
+}
+
+.border-l-visible::before {
+  content: '';
+  position: absolute;
+  top: 65px;
+  left: 0;
+  height: 15%; /* Adjust the height of the visible border */
+  width: 3px; /* Adjust the width of the visible border */
+  background-color: #3300FF; /* Adjust the color of the visible border */
+  border-radius: 4px;
+}
+
+.textarea {
+  border: none; /* Remove default textarea border */
+  border-bottom: 1px solid rgb(184, 182, 182); /* Add bottom border */
+}
+
+.circle {
+  /* margin-top: 2px; */
+  width: 20px; /* Set the width of the circle */
+  height: 20px; /* Set the height of the circle */
+  border-radius: 50%; /* Make the div a circle */
+  background-color: #D8D8D8; /* Set the background color to gray */
 }

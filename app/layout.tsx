@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
+import AppBar from "./components/Appbar";
+import RecoidContextProvider from "./recoilContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
+const dm_sans = DM_Sans({
+  subsets:['latin'],
+  weight:['300','400','500'],
+  variable:'--font-dm_sans',
+})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${dm_sans.className}`}>
+        <AppBar></AppBar>
+        <RecoidContextProvider>{children}</RecoidContextProvider>
+      </body>
     </html>
   );
 }
